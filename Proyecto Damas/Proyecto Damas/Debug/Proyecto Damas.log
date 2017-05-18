@@ -1,8 +1,8 @@
-﻿Compilación iniciada a las 18/5/2017 11:26:57 a. m..
+﻿Compilación iniciada a las 18/5/2017 11:35:58 a. m..
      1>Proyecto "C:\Users\Rachel\Documents\Damas\Proyecto Damas\Proyecto Damas\Proyecto Damas.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
-         Main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Casilla.cpp
+         Casilla.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rachel\Documents\Damas\Proyecto Damas\Debug\Proyecto Damas.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Rachel\Documents\Damas\Proyecto Damas\Debug\Proyecto Damas.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rachel\Documents\Damas\Proyecto Damas\Debug\Proyecto Damas.lib" /MACHINE:X86 Debug\Casilla.obj
          Debug\Ficha.obj
@@ -11,14 +11,9 @@
          Debug\Main.obj
          Debug\Menu.obj
          Debug\Tablero.obj
-     1>Juego.obj : error LNK2019: símbolo externo "public: char __thiscall Casilla::getDato(void)" (?getDato@Casilla@@QAEDXZ) sin resolver al que se hace referencia en la función "public: bool __thiscall Juego::comerFichaBlanca(class Casilla *,class Casilla *)" (?comerFichaBlanca@Juego@@QAE_NPAVCasilla@@0@Z)
-     1>Tablero.obj : error LNK2001: símbolo externo "public: char __thiscall Casilla::getDato(void)" (?getDato@Casilla@@QAEDXZ) sin resolver
-     1>Juego.obj : error LNK2019: símbolo externo "public: class Ficha * __thiscall Casilla::getFicha(void)" (?getFicha@Casilla@@QAEPAVFicha@@XZ) sin resolver al que se hace referencia en la función "public: bool __thiscall Juego::debeComer(class Casilla *)" (?debeComer@Juego@@QAE_NPAVCasilla@@@Z)
-     1>Juego.obj : error LNK2019: símbolo externo "public: void __thiscall Casilla::setDato(char)" (?setDato@Casilla@@QAEXD@Z) sin resolver al que se hace referencia en la función "public: bool __thiscall Juego::comerFichaBlanca(class Casilla *,class Casilla *)" (?comerFichaBlanca@Juego@@QAE_NPAVCasilla@@0@Z)
-     1>Tablero.obj : error LNK2001: símbolo externo "public: void __thiscall Casilla::setDato(char)" (?setDato@Casilla@@QAEXD@Z) sin resolver
-     1>C:\Users\Rachel\Documents\Damas\Proyecto Damas\Debug\Proyecto Damas.exe : fatal error LNK1120: 3 externos sin resolver
-     1>Compilación del proyecto terminada "C:\Users\Rachel\Documents\Damas\Proyecto Damas\Proyecto Damas\Proyecto Damas.vcxproj" (Build destinos) -- ERROR.
+         Proyecto Damas.vcxproj -> C:\Users\Rachel\Documents\Damas\Proyecto Damas\Debug\Proyecto Damas.exe
+     1>Compilación del proyecto terminada "C:\Users\Rachel\Documents\Damas\Proyecto Damas\Proyecto Damas\Proyecto Damas.vcxproj" (Build destinos).
 
-ERROR al compilar.
+Compilación correcta.
 
-Tiempo transcurrido 00:00:01.19
+Tiempo transcurrido 00:00:00.63

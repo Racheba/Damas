@@ -5,7 +5,7 @@ using namespace std;
 
 class Casilla{
 private:
-	//char dato;
+	char dato;
 	int fila;
 	int colum;
 
