@@ -1,5 +1,6 @@
  #include"Tablero.h"
 
+
 Tablero::Tablero()
 {
 	inicio = NULL;
@@ -20,14 +21,14 @@ void Tablero::crearTablero()
 	{
 		if (act == NULL)
 		{
-			Casilla* casilla = new Casilla(' ', i, j);
+			Casilla* casilla = new Casilla(NULL, i, j);
 			inicio = casilla;
 			act = casilla;
 			//cout<< "[" <</* act->getDato() <<*/ act->getFila() << "," << act->getColumna() << "]" << endl;
 		}
 		else
 		{
-			Casilla* casilla1 = new Casilla(' ', i, j);
+			Casilla* casilla1 = new Casilla(NULL, i, j);
 			act->setDownR(casilla1);
 			act = casilla1;
 
@@ -48,11 +49,11 @@ void Tablero::crearTablero()
 	{
 		for (int cont = act->getColumna(), x = act->getColumna() - 1, y = 1; y <= act->getColumna(); x--, y++, cont++)
 		{
-			Casilla* casilla = new Casilla(' ', cont + 1, x);
+			Casilla* casilla = new Casilla(NULL, cont + 1, x);
 			down->setDownL(casilla);
 			down = down->getDownL();
 
-			Casilla* casilla1 = new Casilla(' ', x, cont + 1);
+			Casilla* casilla1 = new Casilla(NULL, x, cont + 1);
 			up->setUpR(casilla1);
 			up = up->getUpR();
 		}
@@ -73,11 +74,11 @@ void Tablero::crearTablero()
 
 			for (int cont = act->getColumna(), x = act->getColumna() - 1, y = 1; y <= z; x--, z--, cont++)
 			{
-				Casilla* casilla = new Casilla(' ', cont + 1, x);
+				Casilla* casilla = new Casilla(NULL, cont + 1, x);
 				down->setDownL(casilla);
 				down = casilla;
 
-				Casilla* casilla1 = new Casilla(' ', x, cont + 1);
+				Casilla* casilla1 = new Casilla(NULL, x, cont + 1);
 				up->setUpR(casilla1);
 				up = casilla1;
 			}
@@ -204,6 +205,9 @@ void Tablero::crearTablero()
 
 void Tablero::imprimirTablero()
 {
+	Ficha* NEGRA = new Ficha(0, false);
+	Ficha* BLANCA = new Ficha(1, false);
+
 	//IMPRIMIENDO COORDENADAS DEL TABLERO
 	cout << "\t";
 	for (int i = 0; i <= 7; i++) //horizontal
@@ -232,8 +236,8 @@ void Tablero::imprimirTablero()
 				}
 				else
 				{
-					buscarCasilla(i, contador)->setDato('n');
-					cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+					buscarCasilla(i, contador)->setFicha(NEGRA); 
+					cout << "[" << buscarCasilla(i, contador)->getFicha()->toString() << "]";
 					contador++;
 				}
 			}
@@ -255,21 +259,21 @@ void Tablero::imprimirTablero()
 				{
 					if (buscarCasilla(i, contador)->getFila() <= 2)
 					{
-						buscarCasilla(i, contador)->setDato('n');
-						cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+						buscarCasilla(i, contador)->setFicha(NEGRA);
+						cout << "[" << buscarCasilla(i, contador)->getFicha()->toString() << "]";
 						contador++;
 					}
 					else
 					{
 						if (buscarCasilla(i, contador)->getFila() >= 5)
 						{
-							buscarCasilla(i, contador)->setDato('b');
-							cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+							buscarCasilla(i, contador)->setFicha(BLANCA); 
+							cout << "[" << buscarCasilla(i, contador)->getFicha()->toString()<< "]";
 							contador++;
 						}
 						else
 						{
-							cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+							cout << "[   ]";
 							contador++;
 						}
 
@@ -312,7 +316,7 @@ void Tablero::imprime2()
 				else
 				{
 
-					cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+					cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
 					contador++;
 				}
 			}
@@ -335,7 +339,7 @@ void Tablero::imprime2()
 					if (buscarCasilla(i, contador)->getFila() <= 2)
 					{
 
-						cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+						cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
 						contador++;
 					}
 					else
@@ -343,12 +347,12 @@ void Tablero::imprime2()
 						if (buscarCasilla(i, contador)->getFila() >= 5)
 						{
 
-							cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+							cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
 							contador++;
 						}
 						else
 						{
-							cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+							cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
 							contador++;
 						}
 
@@ -423,7 +427,7 @@ void Tablero::rellenarTablero()
 				}
 				else
 				{
-					cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+					cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
 					contador++;
 				}
 			}
@@ -443,7 +447,7 @@ void Tablero::rellenarTablero()
 				}
 				else
 				{
-					cout << "[ " << buscarCasilla(i, contador)->getDato() << " ]";
+					cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
 					contador++;
 				}
 
@@ -456,7 +460,7 @@ void Tablero::rellenarTablero()
 
 bool Tablero::casillaOcupada(int fila, int colum)
 {
-	if (buscarCasilla(fila, colum)->getDato() != ' ')
+	if (buscarCasilla(fila, colum)->getFicha())
 		return true;
 	else
 		return false;
@@ -472,5 +476,5 @@ Casilla* Tablero::getInicio(){ return inicio; }
 
 void Tablero::deleteFicha(int fila, int column)
 {
-	buscarCasilla(fila, column)->setDato(' ');
+	buscarCasilla(fila, column)->setFicha(NULL);
 }

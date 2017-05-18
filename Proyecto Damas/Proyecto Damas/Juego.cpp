@@ -11,6 +11,8 @@ bool Juego::moverFichaBlanca(int fila, int colum, int filaD, int columD, Tablero
 {
 	Casilla* casilla = tabl->buscarCasilla(fila, colum);
 	Casilla* casillaD = tabl->buscarCasilla(filaD, columD);
+	Ficha* blanca = new Ficha(1, false);
+	Ficha* reinaBlanca = new Ficha(1, true);
 
 	if (validaMovFichaBlanca(casilla, casillaD, tabl) == true)
 	{
@@ -18,15 +20,17 @@ bool Juego::moverFichaBlanca(int fila, int colum, int filaD, int columD, Tablero
 		{
 			if (casilla->getFicha()->FichaesReina() == true)
 			{
-				casillaD->setDato('B');
-				casilla->setDato(' ');
+			
+				casillaD->setFicha(reinaBlanca);
+				casilla->setFicha(NULL);
 				return true;
 			}
 			else
 			{
-				casillaD->setDato('b');
+				
+				casillaD->setFicha(blanca);
 
-				casilla->setDato(' ');
+				casilla->setFicha(NULL);
 				return true;
 			}
 		}
@@ -40,14 +44,14 @@ bool Juego::moverFichaBlanca(int fila, int colum, int filaD, int columD, Tablero
 
 			if (casilla->getFicha()->FichaesReina() == true)
 			{
-				casillaD->setDato('B');
-				casilla->setDato(' ');
+				casillaD->setFicha(reinaBlanca);
+				casilla->setFicha(NULL);
 				return true;
 			}
 			else
 			{
-				casillaD->setDato('b');
-				casilla->setDato(' ');
+				casillaD->setFicha(blanca);
+				casilla->setFicha(NULL);
 				return true;
 			}
 		}
@@ -59,6 +63,8 @@ bool Juego::moverFichaNegra(int fila, int colum, int filaD, int columD, Tablero*
 {
 	Casilla* casilla = tabl->buscarCasilla(fila, colum);
 	Casilla* casillaD = tabl->buscarCasilla(filaD, columD);
+	Ficha* negra = new Ficha(0, false);
+	Ficha* reinaNegra = new Ficha(0, true);
 
 	if (validaMovFichaNegra(casilla, casillaD, tabl) == true)
 	{
@@ -66,14 +72,14 @@ bool Juego::moverFichaNegra(int fila, int colum, int filaD, int columD, Tablero*
 		{
 			if (casilla->getFicha()->FichaesReina() == true)
 			{
-				casillaD->setDato('N');
-				casilla->setDato(' ');
+				casillaD->setFicha(reinaNegra);
+				casilla->setFicha(NULL);
 				return true;
 			}
 			else
 			{
-				casillaD->setDato('n');
-				casilla->setDato(' ');
+				casillaD->setFicha(negra);
+				casilla->setFicha(NULL);
 				return true;
 			}
 		}
@@ -87,14 +93,14 @@ bool Juego::moverFichaNegra(int fila, int colum, int filaD, int columD, Tablero*
 
 			if (casilla->getFicha()->FichaesReina() == true)
 			{
-				casillaD->setDato('N');
-				casilla->setDato(' ');
+				casillaD->setFicha(reinaNegra);
+				casilla->setFicha(NULL);
 				return true;
 			}
 			else
 			{
-				casillaD->setDato('n');
-				casilla->setDato(' ');
+				casillaD->setFicha(negra);
+				casilla->setFicha(NULL);
 				return true;
 			}
 		}
@@ -108,7 +114,7 @@ bool Juego::validaMovFichaBlanca(Casilla* casilla, Casilla* casillaD, Tablero* t
 {
 	if (casillaD->getColumna() > casilla->getColumna())//derecha
 	{
-		if (casilla->getUpR()->getDato() == ' ') {
+		if ( !casilla->getUpR()->getFicha()) {
 
 			if (tab->casillaOcupada(casillaD->getFila(), casillaD->getColumna()) != true)
 			{
@@ -132,7 +138,7 @@ bool Juego::validaMovFichaBlanca(Casilla* casilla, Casilla* casillaD, Tablero* t
 		return true;
 	}
 	else
-		if (casilla->getUpL()->getDato() == ' ') {
+		if (!casilla->getUpL()->getFicha()) {
 
 			if (tab->casillaOcupada(casillaD->getFila(), casillaD->getColumna()) != true)
 			{
@@ -185,7 +191,7 @@ bool Juego::validaComerFichaBlanca(Casilla* casilla, Casilla* casillaD)
 	//metodo recursivo, cuando se mueve a un Casilla, se vuelve a llamar pero con el Casilla actual.
 
 
-
+	
 
 
 
@@ -206,18 +212,18 @@ bool Juego::validaComerFichaBlanca(Casilla* casilla, Casilla* casillaD)
 	//si es en diagonal
 	if (casilla->getUpR() != NULL && casilla->getUpR()->getUpR() == casillaD)
 	{
-		if (casilla->getUpR()->getDato() == 'b' || casilla->getUpR()->getDato() == 'B')
+		if (casilla->getUpR()->getFicha()->getColor() == 1)
 		{
-			casilla->getUpR()->setDato(' ');
+			casilla->getUpR()->setFicha(NULL);
 			return true;
 		}
 	}
 
 	if (casilla->getUpL() != NULL && casilla->getUpL()->getUpL() == casillaD)
 	{
-		if (casilla->getUpL()->getDato() == 'b' || casilla->getUpL()->getDato() == 'B')
+		if (casilla->getUpL()->getFicha()->getColor() == 1)
 		{
-			casilla->getUpL()->setDato(' ');
+			casilla->getUpL()->setFicha(NULL);
 			return true;
 		}
 	}
@@ -240,18 +246,18 @@ bool Juego::validaComerFichaNegra(Casilla* casilla, Casilla* casillaD)
 	//si es en diagonal
 	if (casilla->getDownR() != NULL && casilla->getDownR()->getDownR() == casillaD)
 	{
-		if (casilla->getDownR()->getDato() == 'n' || casilla->getDownR()->getDato() == 'N')
+		if (casilla->getDownR()->getFicha()->getColor() == 0)
 		{
-			casilla->getDownR()->setDato(' ');
+			casilla->getDownR()->setFicha(NULL);
 			return true;
 		}
 	}
 
 	if (casilla->getDownL() != NULL && casilla->getDownL()->getDownL() == casillaD)
 	{
-		if (casilla->getDownL()->getDato() == 'n' || casilla->getDownL()->getDato() == 'N')
+		if (casilla->getDownL()->getFicha()->getColor() == 0)
 		{
-			casilla->getDownL()->setDato(' ');
+			casilla->getDownL()->setFicha(NULL);
 			return true;
 		}
 	}
@@ -277,22 +283,22 @@ bool Juego:: validaComerVariasNegras(Casilla* casilla, Casilla* casillaD)
 bool Juego::comerFichaBlanca(Casilla* casilla, Casilla* casillaD)
 {
 	//comer fichas las veces que se diga, agregar un contador.  o un while que llame reiteradas veces a comer ficha. 
-	if (casilla->getDato() == 'N') {
+	if (casilla->getFicha()->FichaesReina() && casilla->getFicha()->getColor() == 0) {
 		return false;
 	}
 	else
 	{
 		if (casillaD->getColumna() > casilla->getColumna())//casilla D se va a mover a la Derecha
 		{
-			if (casilla->getDownR()->getDato() == 'b' || casilla->getDownR()->getDato() == 'B') {
-				tablero->buscarCasilla(casillaD->getFila() - 1, casillaD->getColumna() - 1)->setDato(' ');
+			if (casilla->getDownR()->getFicha()->getColor() == 1) {
+				tablero->buscarCasilla(casillaD->getFila() - 1, casillaD->getColumna() - 1)->setFicha(NULL);
 				return true;
 			}
 			//return 0;
 		}
 		else
-			if (casilla->getDownL()->getDato() == 'b' || casilla->getDownL()->getDato() == 'B') {
-				tablero->buscarCasilla(casillaD->getFila() - 1, casillaD->getColumna() + 1)->setDato(' ');
+			if (casilla->getDownL()->getFicha()->getColor() == 1 ) {
+				tablero->buscarCasilla(casillaD->getFila() - 1, casillaD->getColumna() + 1)->setFicha(NULL);
 				return true;
 			}
 		//return 0;
@@ -301,22 +307,22 @@ bool Juego::comerFichaBlanca(Casilla* casilla, Casilla* casillaD)
 
 bool Juego::comerFichaNegra(Casilla* casilla, Casilla * casillaD)
 {
-	if (casilla->getDato() == 'B') {
+	if (casilla->getFicha()->getColor() == 1 && casilla->getFicha()->FichaesReina()) {
 		return false;
 	}
 	else
 	{
 		if (casillaD->getColumna() > casilla->getColumna())//casilla D se va a mover a la Derecha
 		{
-			if (casilla->getUpR()->getDato() == 'n' || casilla->getUpR()->getDato() == 'N') {
-				tablero->buscarCasilla(casillaD->getFila() + 1, casillaD->getColumna() - 1)->setDato(' ');
+			if (casilla->getUpR()->getFicha()->getColor() == 0) {
+				tablero->buscarCasilla(casillaD->getFila() + 1, casillaD->getColumna() - 1)->setFicha(NULL);
 				return true;
 			}
 			return false;
 		}
 		else
-			if (casilla->getUpL()->getDato() == 'n' || casilla->getUpL()->getDato() == 'N') {
-				tablero->buscarCasilla(casillaD->getFila() + 1, casillaD->getColumna() + 1)->setDato(' ');
+			if (casilla->getUpL()->getFicha()->getColor() == 0) {
+				tablero->buscarCasilla(casillaD->getFila() + 1, casillaD->getColumna() + 1)->setFicha(NULL);
 				return true;
 			}
 		return false;
@@ -327,11 +333,11 @@ void Juego::coronarFicha(Casilla* casilla)
 {
 	if (casilla->getFila() == 7 || casilla->getFila() == 0)
 	{
-		if (casilla->getDato() == 'b')
-			casilla->setDato('B');
+		if (casilla->getFicha()->getColor() == 1 && !casilla->getFicha()->FichaesReina())
+			casilla->getFicha()->setReina(true);
 
-		if (casilla->getDato() == 'n')
-			casilla->setDato('N');
+		if (casilla->getFicha()->getColor() == 0 && !casilla->getFicha()->FichaesReina())
+			casilla->getFicha()->setReina(true);
 	}
 }
 
@@ -344,12 +350,12 @@ bool Juego::debeComer(Casilla* casilla)
 	}
 
 	//si es blanca 
-	if (casilla->getDato() == 'b')
+	if (casilla->getFicha()->getColor() == 1)
 	{
 		if (casilla->getUpR() != NULL)
 		{
 			//ver si lo divido.
-			if (casilla->getUpR()->getDato() == 'n' && casilla->getUpR()->getUpR()->getDato() == ' ' || casilla->getUpR()->getDato() == 'N'  && casilla->getUpR()->getUpR()->getDato() == ' ')
+			if (casilla->getUpR()->getFicha()->getColor() == 0 && !casilla->getUpR()->getUpR()->getFicha())
 				return true;
 		}
 		else
@@ -357,7 +363,7 @@ bool Juego::debeComer(Casilla* casilla)
 
 		if (casilla->getUpL() != NULL)
 		{
-			if (casilla->getUpL()->getDato() == 'n' && casilla->getUpL()->getUpL()->getDato() == ' ' || casilla->getUpL()->getDato() == 'N' && casilla->getUpL()->getUpL()->getDato() == ' ')
+			if (casilla->getUpL()->getFicha()->getColor() == 0 && !casilla->getUpL()->getUpL()->getFicha())
 				return true;
 		}
 		else
@@ -366,11 +372,11 @@ bool Juego::debeComer(Casilla* casilla)
 	}
 
 	//si es negra
-	if (casilla->getDato() == 'n')
+	if (casilla->getFicha()->getColor() == 0 && !casilla->getFicha()->FichaesReina())
 	{
 		if (casilla->getDownR() != NULL)
 		{
-			if (casilla->getUpR()->getDato() == 'b' && casilla->getDownR()->getDownR()->getDato() == ' ' || casilla->getUpR()->getDato() == 'B' && casilla->getDownR()->getDownR()->getDato() == ' ')
+			if (casilla->getUpR()->getFicha()->getColor() == 1 && !casilla->getDownR()->getDownR()->getFicha())
 				return true;
 		}
 		else
@@ -378,7 +384,7 @@ bool Juego::debeComer(Casilla* casilla)
 
 		if (casilla->getDownL() != NULL)
 		{
-			if (casilla->getDownL()->getDato() == 'b' && casilla->getDownL()->getDownL()->getDato() == ' ' || casilla->getDownL()->getDato() == 'B' && casilla->getDownL()->getDownL()->getDato() == ' ')
+			if (casilla->getDownL()->getFicha()->getColor() == 1 && !casilla->getDownL()->getDownL()->getFicha())
 				return true;
 		}
 		else

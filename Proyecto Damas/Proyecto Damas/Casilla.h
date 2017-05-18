@@ -18,10 +18,10 @@ private:
 
 public:
 
-	Casilla(char, int, int);
+	Casilla(Ficha* fi, int, int);
 	~Casilla();
 
-	char getDato();
+	//int getDato();
 	int getColumna();
 	int getFila();
 	Ficha* getFicha();
@@ -32,7 +32,7 @@ public:
 	Casilla* getDownL();
 
 
-	void setDato(char);
+//	void setDato(int);
 	void setUpR(Casilla*);
 	void setUpL(Casilla*);
 	void setDownR(Casilla*);

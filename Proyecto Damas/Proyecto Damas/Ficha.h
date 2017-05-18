@@ -1,6 +1,5 @@
 #include<iostream>
 #include<sstream>
-#include"stdafx.h"
 # define BLANCO 1
 # define NEGRO 0
 
@@ -9,7 +8,7 @@ using namespace std;
 
 class Ficha{
 private:
-	int color; //1 negro 0 blanco
+	int color;
 	//char tipo;
 	bool esReina;
 

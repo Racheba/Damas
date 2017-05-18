@@ -4,12 +4,12 @@ class Jugador{
 private:
 	int cantFichas;
 	int cantReinas;
-	char tipo;
+//	char tipo;
 
 	int color;
 
 public:
-	Jugador(int, char);
+	Jugador(int, int);
 	~Jugador();
 
 	int getcantFichas();

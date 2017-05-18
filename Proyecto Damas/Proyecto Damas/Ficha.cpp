@@ -1,5 +1,6 @@
 #include"Ficha.h"
 
+
 Ficha::Ficha(int x)
 {
 	color = x;
@@ -22,17 +23,14 @@ bool Ficha::FichaesReina(){ return esReina; }
 //imprimir
 string Ficha::toString()
 {
-
-	if (esReina && color == BLANCO) return " \x05 ";
+	if (esReina && color == BLANCO) return " \x06 ";
 	
-	if (esReina && color == NEGRO) return "\x06";
+	if (esReina && color == NEGRO) return "\x05";
 
-	//-------------------------------
+	//--------------------------------------------------------------
 
-	if (color == BLANCO) return " \x01 ";
+	if (color == BLANCO) return " \x02 ";
 
-	if (color == NEGRO) return " \x02 ";
-
-	// NEGRO 02, 06 BLANCO 01, 05	
+	if (color == NEGRO) return " \x01 ";
 
 }

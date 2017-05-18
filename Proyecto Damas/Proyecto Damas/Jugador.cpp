@@ -1,10 +1,11 @@
 #include"Jugador.h"
 
-Jugador::Jugador(/*int col */ int fichas, char t)
+
+Jugador::Jugador(int col, int fichas)//char t
 {
-	//color = col;
+	color = col;
 	cantFichas = fichas;
-	tipo = t;
+//	tipo = t;
 }
 Jugador::~Jugador(){}
 

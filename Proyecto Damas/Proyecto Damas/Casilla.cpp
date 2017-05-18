@@ -1,8 +1,8 @@
 #include"Casilla.h"
 
-Casilla::Casilla(char d, int f, int c)
+Casilla::Casilla(Ficha* fi, int f, int c)
 {
-	dato = d;
+	ficha = fi;
 	fila = f;
 	colum = c;
 
@@ -14,7 +14,7 @@ Casilla::Casilla(char d, int f, int c)
 
 Casilla::~Casilla(){}
 
-char Casilla::getDato(){ return dato; }
+//char Casilla::getDato(){ return dato; }
 int Casilla::getColumna(){ return colum; }
 int Casilla::getFila(){ return fila; }
 Ficha* Casilla::getFicha(){ return ficha; }
@@ -24,7 +24,7 @@ Casilla* Casilla::getUpL(){ return upL; }
 Casilla* Casilla::getDownR(){ return downR; }
 Casilla* Casilla::getDownL(){ return downL; }
 
-void Casilla::setDato(char d){ dato = d; }
+//void Casilla::setDato(char d){ dato = d; }
 void Casilla::setUpR(Casilla* ur){ upR = ur; }
 void Casilla::setUpL(Casilla* ul){ upL = ul; }
 void Casilla::setDownR(Casilla* dr){ downR = dr; }
@@ -35,7 +35,7 @@ string Casilla::toString() //cambiar la casilla
 {
 	stringstream s;
 
-	s << "[" << getFila() << "," << getColumna() << "]" << endl;
+	s << "[ " << getFila() << "," << getColumna() << " ]" << endl;
 
 	return s.str();
 }
