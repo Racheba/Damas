@@ -271,6 +271,7 @@ bool Juego::validaComerVariasBlancas(Casilla* casilla, Casilla* casillaD)
 
 bool Juego:: validaComerVariasNegras(Casilla* casilla, Casilla* casillaD)
 {
+	return true;
 }
 
 bool Juego::comerFichaBlanca(Casilla* casilla, Casilla* casillaD)

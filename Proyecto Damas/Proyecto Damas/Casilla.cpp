@@ -2,7 +2,7 @@
 
 Casilla::Casilla(char d, int f, int c)
 {
-	dato = d;
+//	dato = d;
 	fila = f;
 	colum = c;
 
@@ -14,7 +14,7 @@ Casilla::Casilla(char d, int f, int c)
 
 Casilla::~Casilla(){}
 
-char Casilla::getDato(){ return dato; }
+//char Casilla::getDato(){ return dato; }
 int Casilla::getColumna(){ return colum; }
 int Casilla::getFila(){ return fila; }
 
@@ -23,7 +23,7 @@ Casilla* Casilla::getUpL(){ return upL; }
 Casilla* Casilla::getDownR(){ return downR; }
 Casilla* Casilla::getDownL(){ return downL; }
 
-void Casilla::setDato(char d){ dato = d; }
+//void Casilla::setDato(char d){ dato = d; }
 void Casilla::setUpR(Casilla* ur){ upR = ur; }
 void Casilla::setUpL(Casilla* ul){ upL = ul; }
 void Casilla::setDownR(Casilla* dr){ downR = dr; }

@@ -1,5 +1,6 @@
 #include<iostream>
 #include<sstream>
+#pragma once
 using namespace std;
 
 class Ficha{
