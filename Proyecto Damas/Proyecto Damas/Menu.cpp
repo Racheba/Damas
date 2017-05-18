@@ -58,11 +58,7 @@ void Menu::MenuJuego()
 	int salir = 0;
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	cout << "\n\n ===============*";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-	cout << " DAMAS INGLESAS ";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	cout << "*=============== " << endl;
+	cout << "\n - - - - - - - - - DAMAS INGLESAS - - - - - - - - - " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	cout << "\n\n\n" << endl;
 
@@ -74,8 +70,8 @@ void Menu::MenuJuego()
 	tablero->crearTablero();
 	tablero->imprimirTablero();
 
-	cout << "\n\n";
-	cout << " ** Si desea salir del juego, inserte 1, si no, inserte 0 ** "; cin >> salir;
+	cout << "\n\n\n";
+	cout << " (Inserte 1 para salir, cualquier tecla para continuar): "; cin >> salir;
 
 	while (salir != 1)
 	{
@@ -85,13 +81,13 @@ void Menu::MenuJuego()
 			cout << "\n \n \n -> Jugador 1:";
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 			cout << " Inserte la fila y columna donde se encuentra la ficha que desea mover: " << endl;
-			cout << " /\t\t -> Fila:";
+			cout << " \t\t -> Fila:";
 			cin >> fila;
 			cout << "\t\t -> Columna: ";
 			cin >> columna;
 
 			cout << "\n Ahora inserte la fila y columna de la casilla destino:" << endl;
-			cout << " /\t\t -> Fila:";
+			cout << " \t\t -> Fila:";
 			cin >> filaD;
 			cout << "\t\t -> Columna: ";
 			cin >> columnaD;

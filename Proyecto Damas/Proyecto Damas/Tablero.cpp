@@ -1,4 +1,4 @@
-#include"Tablero.h"
+ #include"Tablero.h"
 
 Tablero::Tablero()
 {

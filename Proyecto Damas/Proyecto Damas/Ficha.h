@@ -1,5 +1,9 @@
 #include<iostream>
 #include<sstream>
+#include"stdafx.h"
+# define BLANCO 1
+# define NEGRO 0
+
 #pragma once
 using namespace std;
 
