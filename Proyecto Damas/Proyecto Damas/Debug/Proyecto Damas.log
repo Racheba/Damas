@@ -1,0 +1,47 @@
+﻿Compilación iniciada a las 17/5/2017 5:04:23 p. m..
+     1>Proyecto "C:\Users\Rachel\Documents\Visual Studio 2013\Projects\Proyecto Damas\Proyecto Damas\Proyecto Damas.vcxproj" en el nodo 2 (Build destinos).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Casilla.cpp Juego.cpp Menu.cpp
+         Menu.cpp
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5): error C2011: 'Ficha' : nueva definición del tipo 'class'
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+         Juego.cpp
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5): error C2011: 'Ficha' : nueva definición del tipo 'class'
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(19): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(19): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(41): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(41): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(67): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(67): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(88): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(88): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(116): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(116): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(140): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(140): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(164): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(164): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(201): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(201): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(235): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(235): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(340): error C2027: uso del tipo 'Ficha' sin definir
+                 c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\ficha.h(5) : vea la declaración de 'Ficha'
+     1>c:\users\rachel\documents\visual studio 2013\projects\proyecto damas\proyecto damas\juego.cpp(340): error C2227: el operando izquierdo de '->FichaesReina' debe señalar al tipo class/struct/union/generic
+         Casilla.cpp
+         Generando código...
+     1>Compilación del proyecto terminada "C:\Users\Rachel\Documents\Visual Studio 2013\Projects\Proyecto Damas\Proyecto Damas\Proyecto Damas.vcxproj" (Build destinos) -- ERROR.
+
+ERROR al compilar.
+
+Tiempo transcurrido 00:00:01.19
