@@ -31,5 +31,5 @@ public:
 	if (jugador2->cantFichas <= 4)
 		s << "-> Cuenta con " << jugador1->cantFichas << " fichas, desea retirarse?" << endl;*/ //EN EL MENU
 
-
+	//BUUUUUUUU
 };

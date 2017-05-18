@@ -28,4 +28,7 @@ public:
 	bool validaComerVariasBlancas(Casilla*, Casilla*);
 	bool validaComerVariasNegras(Casilla*, Casilla*);
 
+
+	//BUUUUU2
+
 };
