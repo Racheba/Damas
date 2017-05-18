@@ -29,6 +29,6 @@ public:
 	bool validaComerVariasNegras(Casilla*, Casilla*);
 
 
-	//BUUUUU2
+	
 
 };
