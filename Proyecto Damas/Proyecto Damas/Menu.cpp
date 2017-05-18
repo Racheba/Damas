@@ -5,71 +5,46 @@
 Menu::Menu(){}
 Menu::~Menu(){}
 
-void Menu::Menu1()
+void Menu::MenuPrincipal()
 {
-	int opc;
 
-	MenuPrincipal();
+	int opcion;
+	bool bandera = false;
 
-	cin >> opc;
+	do{
+		system("cls");
 
-	do
-	{
-		switch (opc)
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+		cout << "\n - - - - - - - - - DAMAS INGLESAS - - - - - - - - - " << endl;
+
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+		cout << "\n\t\t   1. Jugar" << endl;
+		cout << "\n\t\t   2. Intrucciones" << endl;
+		cout << "\n\t\t   3. Salir" << endl;
+
+		cout << "\n\n -> Inserte su opcion: ";
+		cin >> opcion;
+
+		switch (opcion)
 		{
+
 		case 1:
-			//jugar 
 			system("cls");
 			MenuJuego();
+			system("pause");
 			break;
 
 		case 2:
-			//instrucciones
 			system("cls");
 			Instrucciones();
 			break;
 
+		case 3:
+			bandera = true;
+			break;
+
 		}
-
-	} while (opc != 3);
-
-}
-
-void Menu::MenuPrincipal()
-{
-
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	cout << "\n\n ===============*";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-	cout << " DAMAS INGLESAS ";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	cout << "*=============== " << endl;
-
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-	cout << "\n\n\t\t 1";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	cout << "->";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	cout << " Jugar" << endl;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-	cout << "\t\t 2";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	cout << "->";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	cout << " Instrucciones" << endl;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-	cout << "\t\t 3";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	cout << "->";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-	cout << " Salir" << endl;
-
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-
-	cout << "\n\n Ingrese su opcion " << endl;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-	cout << "\t\t  -> ";
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	} while (bandera != true);
 
 }
 
@@ -236,7 +211,7 @@ void Menu::Instrucciones()
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
 	cout << "\n\n\n\t -> PRESIONE CUALQUIER TECLA PARA VOLVER AL MENU PRINCIPAL <- " << endl << endl << endl << endl;
-
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	system("pause");
 
 }

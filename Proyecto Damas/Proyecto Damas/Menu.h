@@ -10,7 +10,6 @@ public:
 	Menu();
 	~Menu();
 
-	void Menu1();
 	void MenuPrincipal();
 	void MenuJuego();
 	void Instrucciones();
