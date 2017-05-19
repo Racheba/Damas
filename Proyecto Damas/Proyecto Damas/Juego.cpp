@@ -37,12 +37,6 @@ bool Juego::moverFichaBlanca(int fila, int colum, int filaD, int columD, Tablero
 		}
 		else
 		{
-			if (debeComer(casilla) == true)
-			{
-				cout << "Debe comer" << endl;
-				return false;
-			}
-
 			if (casilla->getFicha()->FichaesReina() == true)
 			{
 				casillaD->setFicha(reinaBlanca);
@@ -89,12 +83,6 @@ bool Juego::moverFichaNegra(int fila, int colum, int filaD, int columD, Tablero*
 		}
 		else
 		{
-			if (debeComer(casilla) == true)
-			{
-				cout << "Debe comer" << endl;
-				return false;
-			}
-
 			if (casilla->getFicha()->FichaesReina() == true)
 			{
 				casillaD->setFicha(reinaNegra);
@@ -386,6 +374,14 @@ bool Juego::debeComer(Casilla* casilla, Casilla* casillaD)
 
 
 
+
+
+
+
+
+
+
+
 	//---------  SI ES BLANCA  --------------
 	if (casilla->getFicha()->getColor() == 1)
 	{
@@ -394,7 +390,12 @@ bool Juego::debeComer(Casilla* casilla, Casilla* casillaD)
 			if (casilla->getUpR()->getUpR()->getFicha() == NULL)
 			{
 				if (casilla->getUpR()->getFicha()->getColor() == 0)
-					return true;
+				{
+					if (casilla->getUpR()->getUpR() != casillaD)
+						return true;
+					else
+						return false;
+				}
 			}
 			
 		}
@@ -410,9 +411,12 @@ bool Juego::debeComer(Casilla* casilla, Casilla* casillaD)
 			if (casilla->getUpL()->getUpL()->getFicha() == NULL)
 			{
 				if (casilla->getUpL()->getFicha()->getColor() == 0)
-					return true;
-				else
-					return false;
+				{
+					if (casilla->getUpL()->getUpL() != casillaD)
+						return true;
+					else
+						return false;
+				}
 			}
 			else
 				return false;
@@ -430,7 +434,12 @@ bool Juego::debeComer(Casilla* casilla, Casilla* casillaD)
 			if (casilla->getDownR()->getDownR()->getFicha() == NULL)
 			{
 				if (casilla->getDownR()->getFicha()->getColor() == 1)
-					return true;
+				{
+					if (casilla->getDownR()->getDownR() != casillaD)
+						return true;
+					else
+						return false;
+				}
 			}
 		}
 	}
@@ -443,9 +452,13 @@ bool Juego::debeComer(Casilla* casilla, Casilla* casillaD)
 			if (casilla->getDownL()->getDownL()->getFicha() == NULL)
 			{
 				if (casilla->getDownL()->getFicha()->getColor() == 0)
-					return true;
-				else
-					return false;
+				{
+					if (casilla->getDownL()->getDownL() != casillaD)
+						return true;
+					else
+						return false;
+				}
+					
 			}
 			else
 				return false;

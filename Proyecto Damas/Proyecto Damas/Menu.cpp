@@ -93,7 +93,7 @@ void Menu::MenuJuego()
 			cin >> columnaD;
 
 			
-			while (juego->debeComer(tablero->buscarCasilla(fila, columna)) == true)
+			while (juego->debeComer(tablero->buscarCasilla(fila, columna), tablero->buscarCasilla(filaD, columnaD)) == true)
 			{
 				cout << " DEBE COMER" << endl << endl;
 
@@ -152,7 +152,7 @@ void Menu::MenuJuego()
 			cout << "\t\t -> Columna: ";
 			cin >> columnaD;
 
-			while (juego->debeComer(tablero->buscarCasilla(fila, columna)) == true)
+			while (juego->debeComer(tablero->buscarCasilla(fila, columna), tablero->buscarCasilla(filaD, columnaD)) == true)
 			{
 				cout << " DEBE COMER" << endl << endl;
 
