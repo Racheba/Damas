@@ -278,7 +278,7 @@ bool Juego::validaComerVariasBlancas(Casilla* casilla, Casilla* casillaD)
 bool Juego:: validaComerVariasNegras(Casilla* casilla, Casilla* casillaD)
 {
 	return true;
-}
+} //solo la reina come varias
 
 bool Juego::comerFichaBlanca(Casilla* casilla, Casilla* casillaD)
 {
@@ -355,7 +355,7 @@ bool Juego::debeComer(Casilla* casilla)
 		if (casilla->getUpR() != NULL)
 		{
 			//ver si lo divido.
-			if (casilla->getUpR()->getFicha()->getColor() == 0 && !casilla->getUpR()->getUpR()->getFicha())
+			if (casilla->getUpR()->getFicha()->getColor() == 0 && casilla->getUpR()->getUpR()->getFicha() == NULL)
 				return true;
 		}
 		else
@@ -363,7 +363,7 @@ bool Juego::debeComer(Casilla* casilla)
 
 		if (casilla->getUpL() != NULL)
 		{
-			if (casilla->getUpL()->getFicha()->getColor() == 0 && !casilla->getUpL()->getUpL()->getFicha())
+			if (casilla->getUpL()->getFicha()->getColor() == 0 && casilla->getUpL()->getUpL()->getFicha() == NULL)
 				return true;
 		}
 		else
@@ -376,7 +376,7 @@ bool Juego::debeComer(Casilla* casilla)
 	{
 		if (casilla->getDownR() != NULL)
 		{
-			if (casilla->getUpR()->getFicha()->getColor() == 1 && !casilla->getDownR()->getDownR()->getFicha())
+			if (casilla->getUpR()->getFicha()->getColor() == 1 && casilla->getDownR()->getDownR()->getFicha() == NULL)
 				return true;
 		}
 		else
@@ -384,7 +384,7 @@ bool Juego::debeComer(Casilla* casilla)
 
 		if (casilla->getDownL() != NULL)
 		{
-			if (casilla->getDownL()->getFicha()->getColor() == 1 && !casilla->getDownL()->getDownL()->getFicha())
+			if (casilla->getDownL()->getFicha()->getColor() == 1 && casilla->getDownL()->getDownL()->getFicha() == NULL)
 				return true;
 		}
 		else
