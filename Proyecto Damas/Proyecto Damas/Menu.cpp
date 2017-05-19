@@ -92,6 +92,24 @@ void Menu::MenuJuego()
 			cout << "\t\t -> Columna: ";
 			cin >> columnaD;
 
+			
+			while (juego->debeComer(tablero->buscarCasilla(fila, columna)) == true)
+			{
+				cout << " DEBE COMER" << endl << endl;
+
+				cout << " Inserte la fila y columna donde se encuentra la ficha que desea mover: " << endl;
+				cout << " \t\t -> Fila:";
+				cin >> fila;
+				cout << "\t\t -> Columna: ";
+				cin >> columna;
+
+				cout << "\n Ahora inserte la fila y columna de la casilla destino:" << endl;
+				cout << " \t\t -> Fila:";
+				cin >> filaD;
+				cout << "\t\t -> Columna: ";
+				cin >> columnaD;
+			}
+
 			while (juego->moverFichaBlanca(fila, columna, filaD, columnaD, tablero) == false)
 			{
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
@@ -133,6 +151,23 @@ void Menu::MenuJuego()
 			cin >> filaD;
 			cout << "\t\t -> Columna: ";
 			cin >> columnaD;
+
+			while (juego->debeComer(tablero->buscarCasilla(fila, columna)) == true)
+			{
+				cout << " DEBE COMER" << endl << endl;
+
+				cout << " Inserte la fila y columna donde se encuentra la ficha que desea mover: " << endl;
+				cout << " \t\t -> Fila:";
+				cin >> fila;
+				cout << "\t\t -> Columna: ";
+				cin >> columna;
+
+				cout << "\n Ahora inserte la fila y columna de la casilla destino:" << endl;
+				cout << " \t\t -> Fila:";
+				cin >> filaD;
+				cout << "\t\t -> Columna: ";
+				cin >> columnaD;
+			}
 
 			while (juego->moverFichaNegra(fila, columna, filaD, columnaD, tablero) == false)
 			{

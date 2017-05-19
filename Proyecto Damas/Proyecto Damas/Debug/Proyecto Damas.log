@@ -1,11 +1,11 @@
-﻿Compilación iniciada a las 19/5/2017 1:42:55 a. m..
+﻿Compilación iniciada a las 19/5/2017 2:49:17 p. m..
      1>Proyecto "C:\Users\Rachel\Documents\Damas\Proyecto Damas\Proyecto Damas\Proyecto Damas.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Juego.cpp
          Juego.cpp
-     1>c:\users\rachel\documents\damas\proyecto damas\proyecto damas\juego.cpp(313): warning C4715: 'Juego::validaComerVariasBlancas' : no todas las rutas de acceso de control devuelven un valor
-     1>c:\users\rachel\documents\damas\proyecto damas\proyecto damas\juego.cpp(343): warning C4715: 'Juego::comerFichaBlanca' : no todas las rutas de acceso de control devuelven un valor
-     1>c:\users\rachel\documents\damas\proyecto damas\proyecto damas\juego.cpp(434): warning C4715: 'Juego::debeComer' : no todas las rutas de acceso de control devuelven un valor
+     1>c:\users\rachel\documents\damas\proyecto damas\proyecto damas\juego.cpp(310): warning C4715: 'Juego::validaComerVariasBlancas' : no todas las rutas de acceso de control devuelven un valor
+     1>c:\users\rachel\documents\damas\proyecto damas\proyecto damas\juego.cpp(340): warning C4715: 'Juego::comerFichaBlanca' : no todas las rutas de acceso de control devuelven un valor
+     1>c:\users\rachel\documents\damas\proyecto damas\proyecto damas\juego.cpp(458): warning C4715: 'Juego::debeComer' : no todas las rutas de acceso de control devuelven un valor
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rachel\Documents\Damas\Proyecto Damas\Debug\Proyecto Damas.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Rachel\Documents\Damas\Proyecto Damas\Debug\Proyecto Damas.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rachel\Documents\Damas\Proyecto Damas\Debug\Proyecto Damas.lib" /MACHINE:X86 Debug\Casilla.obj
          Debug\Ficha.obj
@@ -19,4 +19,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:00.63
+Tiempo transcurrido 00:00:00.64

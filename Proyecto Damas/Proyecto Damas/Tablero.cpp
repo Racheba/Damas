@@ -24,7 +24,7 @@ void Tablero::crearTablero()
 			Casilla* casilla = new Casilla(NULL, i, j);
 			inicio = casilla;
 			act = casilla;
-			//cout<< "[" <</* act->getDato() <<*/ act->getFila() << "," << act->getColumna() << "]" << endl;
+			
 		}
 		else
 		{
@@ -34,8 +34,6 @@ void Tablero::crearTablero()
 
 			act->setUpL(ant);
 			ant = act;
-
-			//cout << string(i*5, '    ') << "[" <</* act->getDato() << */act->getFila() << "," << act->getColumna() << "]" << endl;
 		}
 	}
 
@@ -89,33 +87,6 @@ void Tablero::crearTablero()
 		}
 	}
 
-	//--------------------IMPRIMIR----------------------------------
-	/*
-	act = inicio;
-	down = act;
-	up = act;
-
-	while (act->getDownR() != NULL)
-	{
-	cout << act->getColumna() << endl;
-
-	while (down->getDownL() != NULL && up->getUpR() != NULL)
-	{
-	down = down->getDownL();
-	//	cout << "<--" << down->toString() << endl;
-
-	up = up->getUpR();
-	//	cout << "-->" << up->toString() << endl;
-	}
-
-	act = act->getDownR();
-	down = act;
-	up = act;
-	}
-
-	*/
-
-
 
 	//--------------------------------------- Enlazando Casillas diagonales ---------------------------------------
 	act = inicio->getDownR();
@@ -124,19 +95,13 @@ void Tablero::crearTablero()
 
 	while (act->getDownR() != NULL)
 	{
-		//cout << act->getColumna() << endl;
-
 		while (down->getDownL() != NULL && up->getUpR() != NULL)
 		{
 			down->getDownL()->setUpR(down);
 			down = down->getDownL();
 
-			//cout << "[" << down->getUpR()->getColumna() << "," << down->getUpR()->getFila() << "]" << endl;
-
 			up->getUpR()->setDownL(up);
 			up = up->getUpR();
-
-			//cout << "[" << up->getDownL()->getColumna() << "," << up->getDownL()->getFila() << "]" << endl;
 
 		}
 

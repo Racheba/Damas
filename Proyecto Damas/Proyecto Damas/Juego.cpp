@@ -116,59 +116,57 @@ bool Juego::moverFichaNegra(int fila, int colum, int filaD, int columD, Tablero*
 
 bool Juego::validaMovFichaBlanca(Casilla* casilla, Casilla* casillaD, Tablero* tab)
 {
-	if (!casillaD->getFicha())
+
+	if (casillaD->getFicha() == NULL)
 	{
-		if (casillaD->getColumna() > casilla->getColumna())//derecha
+		if (casilla->getUpR() == casillaD || casilla->getUpL() == casillaD)
+			return true;
+
+		if (validaComerFichaBlanca(casilla, casillaD) == true)
 		{
-			if (!casilla->getUpR()->getFicha()) {
-
-				if (tab->casillaOcupada(casillaD->getFila(), casillaD->getColumna()) != true)
-				{
-					//si la ficha es reina //metodo mover a reina
-					if (casilla->getFicha()->FichaesReina() == true)
-					{
-						return true; //revisar que este en sus diagonales
-					}
-
-					if (casilla->getUpR() == casillaD || casilla->getUpL() == casillaD)
-						return true;
-					else
-						return false; //cout<<no se puede mover a esa casilla
-				}
-				else
-					return false;
-
-			}
+			if (casillaD->getDownL()->getDownL() == casilla || casillaD->getDownR()->getDownR() == casilla)
+				return true;
+			else return false; // si no se cumple, la casillaD esta lejos. 
 
 			return true;
 		}
-		else
-			if (!casilla->getUpL()->getFicha())
-			{
-
-				if (tab->casillaOcupada(casillaD->getFila(), casillaD->getColumna()) != true)
-				{
-					//si la ficha es reina //metodo mover a reina
-					if (casilla->getFicha()->FichaesReina() == true)
-					{
-						return true; //revisar que este en sus diagonales
-					}
-
-					if (casilla->getUpR() == casillaD || casilla->getUpL() == casillaD)
-						return true;
-					else
-						return false; //cout<<no se puede mover a esa casilla
-				}
-			}
+		return false;
 	}
 	return false;
+
 }
 
 bool Juego::validaMovFichaNegra(Casilla* casilla, Casilla* casillaD, Tablero* tab)
 {
+	if (!casillaD->getFicha())
+	{
+		if (casilla->getDownR() == casillaD || casilla->getDownL() == casillaD)
+			return true;
+
+		if (validaComerFichaNegra(casilla, casillaD) == true)
+		{
+			if (casillaD->getUpL()->getUpL() == casilla || casillaD->getUpR()->getUpR() == casilla)
+				return true;
+			else return false; // si no se cumple, la casillaD esta lejos. 
+
+			return true;
+		}
+		return false;
+	}
+	return false;
+
+
+
+
+
+
+	/*
+
+
 
 	if (!casillaD->getFicha())
 	{
+		if (casilla->getDownL() == casillaD)
 		if (casillaD->getColumna() > casilla->getColumna())//derecha
 		{
 			if (!casilla->getDownR()->getFicha()) {
@@ -212,7 +210,7 @@ bool Juego::validaMovFichaNegra(Casilla* casilla, Casilla* casillaD, Tablero* ta
 				}
 			}
 	}
-	return false;
+	return false;*/
 }
 
 bool Juego::validaComerFichaBlanca(Casilla* casilla, Casilla* casillaD)
@@ -283,23 +281,22 @@ bool Juego::validaComerFichaNegra(Casilla* casilla, Casilla* casillaD)
 	{
 		if (casilla->getDownR()->getFicha()->getColor() == 1)
 		{
-			//casilla->getDownR()->setFicha(NULL);
 			return true;
 		}
 		return false;
 	}
 
+
 	if (casilla->getDownL() != NULL && casilla->getDownL()->getDownL() == casillaD && !casilla->getDownL()->getDownL()->getFicha())
 	{
 		if (casilla->getDownL()->getFicha()->getColor() == 1)
 		{
-			//casilla->getDownL()->setFicha(NULL);
 			return true;
 		}
 		return false;
 	}
 	return false;
-	//si esta lejos...
+
 
 
 }
@@ -379,56 +376,83 @@ void Juego::coronarFicha(Casilla* casilla)
 	}
 }
 
-bool Juego::debeComer(Casilla* casilla)
+bool Juego::debeComer(Casilla* casilla, Casilla* casillaD)
 {
 	//primero revisar si es reina
-	if (casilla->getFicha()->FichaesReina() == true)
+/*	if (casilla->getFicha()->FichaesReina() == true)
 	{
 		return true; //revisar las diagonales de esa casilla. 
-	}
+	}*/
 
-	//si es blanca 
+
+
+	//---------  SI ES BLANCA  --------------
 	if (casilla->getFicha()->getColor() == 1)
 	{
 		if (casilla->getUpR()->getFicha())
 		{
-			//ver si lo divido.
-				if (casilla->getUpR()->getUpR()->getFicha() == NULL && casilla->getUpR()->getFicha()->getColor() == 0)
+			if (casilla->getUpR()->getUpR()->getFicha() == NULL)
+			{
+				if (casilla->getUpR()->getFicha()->getColor() == 0)
 					return true;
+			}
 			
 		}
-		else
-			return false;
+	
+	}
+	
 
+	//------------------------------------------
+	if (casilla->getFicha()->getColor() == 1)
+	{
 		if (casilla->getUpL()->getFicha())
 		{
-			if (casilla->getUpL()->getUpL()->getFicha() == NULL && casilla->getUpL()->getFicha()->getColor() == 0 )
-				return true;
+			if (casilla->getUpL()->getUpL()->getFicha() == NULL)
+			{
+				if (casilla->getUpL()->getFicha()->getColor() == 0)
+					return true;
+				else
+					return false;
+			}
+			else
+				return false;
 		}
 		else
 			return false;
-
 	}
 
-	//si es negra
-	if (casilla->getFicha()->FichaesReina() == NULL && casilla->getFicha()->getColor() == 0)
+
+	//---------  SI ES NEGRA  --------------
+	if (casilla->getFicha()->getColor() == 0)
 	{
 		if (casilla->getDownR()->getFicha())
 		{
-			if (casilla->getDownR()->getDownR()->getFicha() == NULL && casilla->getUpR()->getFicha()->getColor() == 1 )
-				return true;
+			if (casilla->getDownR()->getDownR()->getFicha() == NULL)
+			{
+				if (casilla->getDownR()->getFicha()->getColor() == 1)
+					return true;
+			}
 		}
-		else
-			return false;
+	}
 
+	//------------------------------------------
+	if (casilla->getFicha()->getColor() == 1)
+	{
 		if (casilla->getDownL()->getFicha())
 		{
-			if (casilla->getDownL()->getDownL()->getFicha() == NULL && casilla->getDownL()->getFicha()->getColor() == 1 )
-				return true;
+			if (casilla->getDownL()->getDownL()->getFicha() == NULL)
+			{
+				if (casilla->getDownL()->getFicha()->getColor() == 0)
+					return true;
+				else
+					return false;
+			}
+			else
+				return false;
 		}
-		else
-			return false;
+		else return false;
 	}
+
 
 
 } //falta comer para reina.

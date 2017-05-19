@@ -18,7 +18,7 @@ public:
 	bool comerFichaNegra(Casilla*, Casilla*);
 	bool comerFichaBlanca(Casilla*, Casilla*);
 	void coronarFicha(Casilla*);
-	bool debeComer(Casilla*);
+	bool debeComer(Casilla*, Casilla*);
 
 	bool validaMovFichaNegra(Casilla*, Casilla*, Tablero*);
 	bool validaMovFichaBlanca(Casilla*, Casilla*, Tablero*);
