@@ -315,9 +315,17 @@ void Tablero::imprime2()
 				}
 				else
 				{
-
-					cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
-					contador++;
+					if (buscarCasilla(i, contador)->getFicha())
+					{
+						cout << "[" << buscarCasilla(i, contador)->getFicha()->toString() << "]";
+						contador++;
+					}
+					else
+					{
+						cout << "[   ]";
+						contador++;
+					}
+						
 				}
 			}
 		}
@@ -338,22 +346,46 @@ void Tablero::imprime2()
 				{
 					if (buscarCasilla(i, contador)->getFila() <= 2)
 					{
-
-						cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
-						contador++;
+						if (buscarCasilla(i, contador)->getFicha())
+						{
+							cout << "[" << buscarCasilla(i, contador)->getFicha()->toString() << "]";
+							contador++;
+						}
+						else
+						{
+							cout << "[   ]";
+							contador++;
+						}
+						
 					}
 					else
 					{
 						if (buscarCasilla(i, contador)->getFila() >= 5)
 						{
-
-							cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
-							contador++;
+							if (buscarCasilla(i, contador)->getFicha())
+							{
+								cout << "[" << buscarCasilla(i, contador)->getFicha()->toString() << "]";
+								contador++;
+							}
+							else
+							{
+								cout << "[   ]";
+								contador++;
+							}
+						
 						}
 						else
 						{
-							cout << "[ " << buscarCasilla(i, contador)->getFicha()->toString() << " ]";
-							contador++;
+							if (buscarCasilla(i, contador)->getFicha())
+							{
+								cout << "[" << buscarCasilla(i, contador)->getFicha()->toString() << "]";
+								contador++;
+							}
+							else
+							{
+								cout << "[   ]";
+								contador++;
+							}
 						}
 
 					}
